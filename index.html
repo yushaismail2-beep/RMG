@@ -1,0 +1,551 @@
+<!doctype html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width,initial-scale=1" 
+/> 
+    <title>RetroMiniGames</title> 
+    <link rel="stylesheet" href="style.css" /> 
+  </head> 
+  <body> 
+    <div class="page-wrapper"> 
+      <header class="site-header"> 
+        <div class="logo">RETROMINIGAMES</div> 
+        <nav class="nav"> 
+          <div class="nav-pill">Arcade</div> 
+          <div class="nav-pill">HTML · CSS · JS</div> 
+          <div class="nav-pill">Est. <span id="year"></span></div> 
+        </nav> 
+      </header> 
+ 
+ 
+      <main> 
+        <section class="hero"> 
+          <h1>Pixel-perfect mini games.</h1> 
+          <p> 
+            A tiny retro arcade of JavaScript games. <br></br>
+            Made by Yusha
+          </p> 
+        </section> 
+ 
+ 
+        <section> 
+          <h2 class="section-title">Games library</h2> 
+          <div class="games-grid"> 
+ 
+            <!-- Flappy card --> 
+            <article class="game-card" data-game="flappy"> 
+              <div class="game-tag">Arcade</div> 
+              <h3>Flappy Retro</h3> 
+              <p class="game-desc"> 
+                Tap to flap through neon pipes. Smaller bird, bigger 
+gaps, 
+                classic one-more-try arcade feel. 
+              </p> 
+              <div class="game-meta"> 
+                <span>Difficulty: ★★☆☆☆</span> 
+                <span>Controls: Mouse / Space</span> 
+              </div> 
+              <button class="btn-play" type="button" 
+data-game="flappy"> 
+                Play 
+              </button> 
+            </article> 
+ 
+ 
+            <!-- Minesweeper card --> 
+            <article class="game-card" data-game="mines"> 
+              <div class="game-tag">Puzzle</div> 
+              <h3>Greenfield Minesweeper</h3> 
+              <p class="game-desc"> 
+                Classic minesweeper with green tiles and red flags. 
+Clear the 
+                field without triggering a mine. 
+              </p> 
+              <div class="game-meta"> 
+                <span>Difficulty: ★★★★☆</span> 
+                <span>Controls: Mouse</span> 
+              </div> 
+              <button class="btn-play" type="button" data-game="mines"> 
+                Play 
+              </button> 
+            </article> 
+ 
+ 
+            <!-- Table Tennis card --> 
+            <article class="game-card" data-game="table"> 
+              <div class="game-tag">Multiplayer</div> 
+              <h3>2D Table Tennis</h3> 
+              <p class="game-desc"> 
+                Local 1v1 pong-style table tennis with gravity-based 
+bounces and 
+                a centre net. 
+              </p> 
+              <div class="game-meta"> 
+                <span>Difficulty: ★★☆☆☆</span> 
+                <span>Controls: W/S &amp; ↑/↓</span> 
+              </div> 
+              <button class="btn-play" type="button" data-game="table"> 
+                Play 
+              </button> 
+            </article> 
+ 
+ 
+            <!-- Mini Pac-Man card --> 
+<article class="game-card" data-game="pacman"> 
+  <div class="game-tag">Maze</div> 
+  <h3>Mini Pac-Man</h3> 
+  <p class="game-desc"> 
+    Classic dot-chomping maze chase. Clear the board while avoiding the 
+monster. 
+  </p> 
+  <div class="game-meta"> 
+    <span>Difficulty: ★★★☆☆</span> 
+    <span>Controls: Arrow keys</span> 
+  </div> 
+  <button class="btn-play" type="button" data-game="pacman"> 
+    Play 
+  </button> 
+</article> 
+ 
+ 
+<!-- Neon Snake card -->
+<article class="game-card" data-game="snake">
+  <div class="game-tag">Arcade</div>
+  <h3>Neon Snake</h3>
+  <p class="game-desc">
+    Glide through a glowing grid, eat the orbs, and avoid crashing into yourself.
+  </p>
+  <div class="game-meta">
+    <span>Difficulty: ★★★☆☆</span>
+    <span>Controls: Arrow keys</span>
+  </div>
+  <button class="btn-play" type="button" data-game="snake">
+    Play
+  </button>
+</article>
+ 
+ 
+ 
+ 
+          </div> 
+        </section> 
+      </main> 
+ 
+ 
+ 
+ 
+ 
+      <footer class="site-footer"> 
+        RetroMiniGames · Built with HTML, CSS &amp; JS · 
+        <span id="year-footer"></span> 
+      </footer> 
+    </div> 
+ 
+ 
+    <!-- ================== MODALS ================== --> 
+ 
+ 
+    <!-- FLAPPY RETRO MODAL --> 
+    <div id="modal-flappy" class="modal hidden"> 
+      <div class="modal-backdrop" data-close="flappy"></div> 
+      <div class="modal-inner"> 
+        <header class="modal-header"> 
+          <div> 
+            <h2>Flappy Retro</h2> 
+            <p class="modal-subtitle"> 
+              Tap to keep the tiny bird flying through neon pipes. 
+            </p> 
+          </div> 
+          <button 
+            class="modal-close" 
+            type="button" 
+            aria-label="Close game" 
+            data-close="flappy" 
+          > 
+            ✕ 
+          </button> 
+        </header> 
+ 
+ 
+        <div class="modal-body"> 
+          <div class="modal-game"> 
+            <div id="fb-game-container"> 
+              <div id="fb-bird"></div> 
+              <div id="fb-score">0</div> 
+              <div id="fb-message"> 
+                Click or press Space to start. Don’t hit the pipes or 
+the 
+                ground. 
+              </div> 
+            </div> 
+          </div> 
+ 
+ 
+          <aside class="modal-info"> 
+            <h3>How to play</h3> 
+            <ul class="info-list"> 
+              <li>Tap or press Space to flap upwards.</li> 
+              <li>Dodge the pipes — touching one ends the run.</li> 
+              <li>Each pipe you pass scores a point.</li> 
+            </ul> 
+ 
+ 
+            <h3>Controls</h3> 
+            <ul class="info-list"> 
+              <li><strong>Flap / Start:</strong> Mouse click or 
+<kbd>Space</kbd></li> 
+              <li> 
+                <strong>Restart:</strong> Click or <kbd>Space</kbd> 
+after Game 
+                Over 
+              </li> 
+              <li> 
+                <strong>Close game:</strong> <kbd>Esc</kbd> or ✕ 
+              </li> 
+            </ul> 
+          </aside> 
+        </div> 
+      </div> 
+    </div> 
+ 
+ 
+    <!-- MINESWEEPER MODAL --> 
+    <div id="modal-mines" class="modal hidden"> 
+      <div class="modal-backdrop" data-close="mines"></div> 
+      <div class="modal-inner"> 
+        <header class="modal-header"> 
+          <div> 
+            <h2>Greenfield Minesweeper</h2> 
+            <p class="modal-subtitle"> 
+              Green tiles, red flags. Classic minesweeper in retro 
+colours. 
+            </p> 
+          </div> 
+          <button 
+            class="modal-close" 
+            type="button" 
+            aria-label="Close game" 
+            data-close="mines" 
+          > 
+            ✕ 
+          </button> 
+        </header> 
+ 
+ 
+        <div class="modal-body"> 
+          <div class="modal-game"> 
+            <div id="ms-game-container"> 
+              <div class="ms-controls"> 
+                <label> 
+                  Rows 
+                  <input 
+                    id="ms-rows" 
+                    type="number" 
+                    min="5" 
+                    max="14" 
+                    value="10" 
+                  /> 
+                </label> 
+                <label> 
+                  Cols 
+                  <input 
+                    id="ms-cols" 
+                    type="number" 
+                    min="5" 
+                    max="14" 
+                    value="10"
+                  /> 
+                </label> 
+                <label> 
+                  Mines 
+                  <input 
+                    id="ms-mines" 
+                    type="number" 
+                    min="1" 
+                    max="200" 
+                    value="15" 
+                  /> 
+                </label> 
+ 
+ 
+                <button id="ms-newBtn" type="button">New game</button> 
+                <button 
+                  id="ms-resetBtn" 
+                  type="button" 
+                  class="secondary" 
+                > 
+                  Reset board 
+                </button> 
+ 
+ 
+                <div class="ms-status" id="ms-stats"> 
+                  Mines: 0 | Flags: 0 
+                </div> 
+              </div> 
+ 
+ 
+              <div id="ms-board" class="ms-board"></div> 
+ 
+ 
+              <div id="ms-message" class="ms-message"> 
+                Right-click to place a red flag. Left-click to reveal. 
+Reveal a 
+                mine and you lose. 
+              </div> 
+ 
+ 
+              <div class="ms-footer"> 
+                Right-click / long-press to toggle flags (mobile: 
+long-press a 
+                cell). 
+              </div> 
+            </div> 
+          </div> 
+ 
+ 
+          <aside class="modal-info"> 
+            <h3>How to play</h3> 
+            <ul class="info-list"> 
+              <li>Set rows, columns, and number of mines, then start a 
+new game.</li> 
+              <li>Left-click a tile to reveal it.</li> 
+              <li>Right-click to place or remove a red flag.</li> 
+              <li>Numbers show how many mines touch that square.</li> 
+              <li> 
+                Win by clearing all safe squares or correctly flagging 
+all 
+                mines. 
+              </li> 
+            </ul> 
+ 
+ 
+            <h3>Controls</h3> 
+            <ul class="info-list"> 
+              <li><strong>Reveal:</strong> Left-click</li> 
+              <li><strong>Flag:</strong> Right-click / long-press</li> 
+              <li><strong>New game:</strong> “New game” button</li> 
+              <li><strong>Reset board:</strong> “Reset board” 
+button</li> 
+              <li><strong>Close game:</strong> <kbd>Esc</kbd> or 
+✕</li> 
+            </ul> 
+          </aside> 
+        </div> 
+      </div> 
+    </div> 
+ 
+ 
+    <!-- TABLE TENNIS MODAL --> 
+    <div id="modal-table" class="modal hidden"> 
+      <div class="modal-backdrop" data-close="table"></div> 
+      <div class="modal-inner"> 
+        <header class="modal-header"> 
+          <div> 
+            <h2>2D Table Tennis</h2> 
+            <p class="modal-subtitle"> 
+              Local multiplayer pong-style table tennis with gravity 
+bounces. 
+            </p> 
+          </div> 
+          <button 
+            class="modal-close" 
+            type="button" 
+            aria-label="Close game" 
+            data-close="table" 
+          > 
+            ✕ 
+          </button> 
+        </header> 
+ 
+ 
+        <div class="modal-body"> 
+          <div class="modal-game"> 
+            <div id="tt-game-container"> 
+              <div class="tt-scoreboard"> 
+                <span id="tt-p1-score">0</span> — <span 
+id="tt-p2-score">0</span> 
+              </div> 
+              <div class="tt-controls"> 
+                P1: <kbd>W</kbd> / <kbd>S</kbd> &nbsp; | &nbsp; P2: 
+                <kbd>↑</kbd> / <kbd>↓</kbd> 
+              </div> 
+              <button id="tt-restart" type="button">Restart 
+Match</button> 
+ 
+ 
+              <canvas 
+                id="tt-game-canvas" 
+                width="900" 
+                height="420" 
+              ></canvas> 
+            </div> 
+          </div> 
+ 
+ 
+          <aside class="modal-info"> 
+            <h3>How to play</h3> 
+            <ul class="info-list"> 
+              <li>Two players share one keyboard.</li> 
+              <li>Ball must bounce on the table before a paddle can hit 
+it.</li> 
+              <li> 
+                If a paddle touches the ball before the first bounce, 
+the other 
+                player scores. 
+              </li> 
+              <li>Ball going past a paddle gives a point to the other 
+side.</li> 
+            </ul> 
+ 
+ 
+            <h3>Controls</h3> 
+            <ul class="info-list"> 
+              <li><strong>P1 Move:</strong> <kbd>W</kbd> / 
+<kbd>S</kbd></li> 
+              <li> 
+                <strong>P2 Move:</strong> <kbd>↑</kbd> / <kbd>↓</kbd> 
+              </li> 
+              <li> 
+                <strong>Restart scores:</strong> “Restart Match” button 
+              </li> 
+              <li><strong>Close game:</strong> <kbd>Esc</kbd> or 
+✕</li> 
+            </ul> 
+          </aside> 
+        </div> 
+      </div> 
+    </div> 
+ 
+ 
+    <!-- MINI PAC-MAN MODAL --> 
+<div id="modal-pacman" class="modal hidden"> 
+  <div class="modal-backdrop" data-close="pacman"></div> 
+  <div class="modal-inner"> 
+    <header class="modal-header"> 
+      <div> 
+        <h2>Mini Pac-Man</h2> 
+        <p class="modal-subtitle"> 
+          Navigate the maze, eat all the dots, and avoid the chasing 
+monster. 
+        </p> 
+      </div> 
+      <button 
+        class="modal-close" 
+        type="button" 
+        aria-label="Close game" 
+        data-close="pacman" 
+      > 
+        ✕ 
+      </button> 
+    </header> 
+ 
+ 
+    <div class="modal-body"> 
+      <div class="modal-game"> 
+        <div id="pm-game-container"> 
+          <div class="pm-hud"> 
+            <div>Score: <span id="pm-score">0</span></div> 
+            <button id="pm-restart" type="button">Restart</button> 
+          </div> 
+ 
+ 
+          <div id="pm-game-board"></div> 
+ 
+ 
+          <p class="pm-hint"> 
+            Use the arrow keys to move Pac-Man. Eat all the dots and 
+avoid the red monster. 
+          </p> 
+        </div> 
+      </div> 
+ 
+ 
+      <aside class="modal-info"> 
+        <h3>How to play</h3> 
+        <ul class="info-list"> 
+          <li>Use the arrow keys to move Pac-Man around the maze.</li> 
+          <li>Move over dots to eat them and increase your score.</li> 
+          <li>If the monster touches you, the round ends and the maze 
+resets.</li> 
+        </ul> 
+ 
+ 
+        <h3>Controls</h3> 
+        <ul class="info-list"> 
+          <li><strong>Move:</strong> <kbd>↑</kbd> <kbd>↓</kbd> 
+<kbd>←</kbd> <kbd>→</kbd></li> 
+          <li><strong>Restart:</strong> “Restart” button</li> 
+          <li><strong>Close game:</strong> <kbd>Esc</kbd> or ✕</li> 
+        </ul> 
+      </aside> 
+    </div> 
+  </div> 
+</div> 
+ 
+ 
+<!-- NEON SNAKE MODAL -->
+<div id="modal-snake" class="modal hidden">
+  <div class="modal-backdrop" data-close="snake"></div>
+  <div class="modal-inner">
+    <header class="modal-header">
+      <div>
+        <h2>Neon Snake</h2>
+        <p class="modal-subtitle">
+          Slither through a glowing grid, eat energy orbs, and don’t bite your own tail.
+        </p>
+      </div>
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close game"
+        data-close="snake"
+      >
+        ✕
+      </button>
+    </header>
+
+    <div class="modal-body">
+      <div class="modal-game">
+        <div id="sn-game-container">
+          <div class="sn-hud">
+            <div>Score: <span id="sn-score">0</span></div>
+            <button id="sn-restart" type="button">Restart</button>
+          </div>
+
+          <canvas
+            id="sn-game-canvas"
+            width="400"
+            height="400"
+          ></canvas>
+
+          <p class="sn-hint">
+            Use the arrow keys to move. Eat the glowing orbs to grow. Don’t hit the walls or yourself.
+          </p>
+        </div>
+      </div>
+
+      <aside class="modal-info">
+        <h3>How to play</h3>
+        <ul class="info-list">
+          <li>Use the arrow keys to steer the snake on the neon grid.</li>
+          <li>Move over glowing orbs to eat them and increase your score.</li>
+          <li>Each orb makes your snake longer and the game faster.</li>
+          <li>Hitting the wall or your own body ends the run.</li>
+        </ul>
+
+        <h3>Controls</h3>
+        <ul class="info-list">
+          <li><strong>Move:</strong> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></li>
+          <li><strong>Restart:</strong> “Restart” button</li>
+          <li><strong>Close game:</strong> <kbd>Esc</kbd> or ✕</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+ 
+ 
+    <script src="script.js"></script> 
+  </body> 
+</html>
